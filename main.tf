@@ -58,7 +58,7 @@ resource "aws_db_instance" "mysql-db" {
 # Elasticache subnet group
 resource "aws_elasticache_subnet_group" "redis-subnet-group" {
   name       = "${var.env_name}-elasticache-subnet-group"
-  subnet_ids = ["${var.subnet_a_id}", "${var.subnet_b_id}"]
+  subnet_ids = [var.subnet_a_id, var.subnet_b_id]
 }
 
 resource "aws_elasticache_cluster" "redis-db" {
