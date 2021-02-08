@@ -10,7 +10,7 @@ data "aws_eks_cluster" "microservice-cluster" {
 # The RDS subnet group that points to the subnets we've declared above
 resource "aws_db_subnet_group" "rds-subnet-group" {
   name       = "${var.env_name}-rds-subnet-group"
-  subnet_ids = ["${var.subnet_a_id}", "${var.subnet_b_id}"]
+  subnet_ids = [var.subnet_a_id, var.subnet_b_id]
 }
 
 # Create a security group to allow traffic from the EKS cluster
